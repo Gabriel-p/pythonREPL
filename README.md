@@ -3,7 +3,7 @@ pythonREPL
 
 A [`Sublime Text`](https://www.sublimetext.com/) package for running Python REPLs.
 
-This is a **heavily** stripped-down version of the [SublimeREPL](https://github.com/wuub/SublimeREPL) package, tested
+This is a **heavily** stripped-down version of the [`SublimeREPL`](https://github.com/wuub/SublimeREPL) package, tested
 only for running Python on Linux. The original `SublimeREPL` is no longer maintained
 (it was last updated in 2016), and recent builds of `Sublime Text` have started to
 break it.
