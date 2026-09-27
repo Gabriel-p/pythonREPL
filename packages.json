@@ -1,0 +1,16 @@
+{
+    "schema_version": "1.0.0",
+    "packages": [
+        {
+            "name": "pythonREPL",
+            "details": "https://github.com/Gabriel-p/pythonREPL",
+            "description": "Subprocess REPL with Python support.",
+            "releases": [
+                {
+                    "sublime_text": "*",
+                    "tags": true
+                }
+            ]
+        }
+    ]
+}

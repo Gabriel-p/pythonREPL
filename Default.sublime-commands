@@ -1,0 +1,13 @@
+[
+    {
+        "caption": "pythonREPL: Run Current File",
+        "command": "run_python_repl",
+    },
+    {
+        "caption": "pythonREPL: Interactive",
+        "command": "run_python_repl",
+        "args": {
+            "interactive": true
+        }
+    }
+]
