@@ -1,7 +1,7 @@
 pythonREPL
 ==========
 
-A `Sublime Text` package for running Python REPLs.
+A [`Sublime Text`](https://www.sublimetext.com/) package for running Python REPLs.
 
 This is a **heavily** stripped-down version of the [SublimeREPL](https://github.com/wuub/SublimeREPL) package, tested
 only for running Python on Linux. The original `SublimeREPL` is no longer maintained
