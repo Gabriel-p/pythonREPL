@@ -89,23 +89,6 @@ class Repl:
                 return output
 
 
-# class Unsupported(Exception):
-#     """Represent an unsupported subprocess command configuration."""
-
-#     def __init__(self, msgs):
-#         """Store user-facing unsupported messages.
-
-#         Args:
-#             msgs: Message list describing why the command is unsupported.
-#         """
-#         super().__init__()
-#         self.msgs = msgs
-
-#     def __repr__(self):
-#         """Return a printable unsupported message."""
-#         return "\n".join(self.msgs)
-
-
 class SubprocessRepl(Repl):
     """Run a REPL backed by a subprocess."""
 
@@ -636,12 +619,6 @@ class ReplView:
 
     def adjust_end(self):
         """Recalculate output boundary after user input changes."""
-        # if self.repl.suppress_echo:
-        #     v = self._view
-        #     vsize = v.size()
-        #     self._output_end = min(vsize, self._output_end)
-        #     v.run_command("repl_erase_text", {"start": self._output_end, "end": vsize})
-        # else:
         self._output_end = self._view.size()
 
     def write(self, unistr):
