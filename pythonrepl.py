@@ -242,7 +242,13 @@ class SubprocessRepl(Repl):
         while True:
             i, _, _ = select.select([out], [], [], 0.1)
             if i:
-                data = out.read(4096)
+                # Read the raw fd: a buffered read can keep bytes in Python's
+                # internal buffer that select() cannot see, stalling output
+                # until the process writes again.
+                try:
+                    data = os.read(out.fileno(), 65536)
+                except BlockingIOError:
+                    continue
                 if data:
                     return data
                 if self.popen.poll() is not None:
