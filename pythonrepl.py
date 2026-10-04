@@ -573,6 +573,8 @@ class ReplView:
 
     def enter(self, cmd_postfix="\n"):
         """Submit current input to the REPL backend."""
+        if not self.repl.is_alive():
+            return
         v = self._view
         if v.sel()[0].begin() != v.size():
             v.sel().clear()
@@ -581,7 +583,11 @@ class ReplView:
         # l = self._output_end
 
         self.push_history(self.user_input)  # don't include cmd_postfix in history
-        v.run_command("insert", {"characters": cmd_postfix})
+        # Insert the newline verbatim: the "insert" command auto-indents, copying
+        # leading whitespace from the prompt line (e.g. input(" ")) into the
+        # next line, which then gets sent to the process and later stripped
+        # by Sublime, desyncing the input region.
+        v.run_command("repl_insert_text", {"pos": v.size(), "text": cmd_postfix})
         command = self.user_input
         self.adjust_end()
         self.repl.write(command)
